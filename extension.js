@@ -186,10 +186,6 @@ class DimController {
         this._unredirectDisabled = disable;
     }
 
-    get active() {
-        return this._effect !== null;
-    }
-
     destroy() {
         this._cancellable.cancel();
         for (const name of KEYBINDINGS)
@@ -199,6 +195,10 @@ class DimController {
         this._detach();
         this._setUnredirect(false);
         this._indicator = null;
+        this._monitors = [];
+        this._cancellable = null;
+        this._settings = null;
+        this._extension = null;
     }
 }
 
@@ -221,6 +221,14 @@ export default class DeepDimExtension extends Extension {
     }
 
     disable() {
+        // Deep Dim keeps running in the unlock-dialog session mode on purpose:
+        // the lock screen is drawn by the Shell like everything else, so without
+        // the filter, locking or waking the screen at night would flash it at full
+        // brightness. On the lock screen the extension only keeps its shader and
+        // its three Mutter keybindings (darker, brighter, on/off). The on/off
+        // binding is the way back if the screen was made too dark to read the
+        // unlock prompt. No keyboard event signals are connected at any time;
+        // keybindings only fire for their own accelerators.
         Main.panel.statusArea.quickSettings.menu.disconnect(this._menuOpenId);
         this._menuOpenId = null;
         this._controller.destroy();

@@ -1,7 +1,7 @@
 {
   "uuid": "deepdim@joseteo.github.com",
   "name": "Deep Dim",
-  "description": "Dim your screens below the lowest brightness the hardware allows. A colour-matrix shader scales every pixel the compositor draws, so you can go down to almost black at night. The slider sits in Quick Settings right under the brightness slider, with contrast, colour intensity and warmth controls and a switch per screen. Shortcuts: Super+Alt+Page Down / Page Up (or Shift + the brightness keys) to step, Super+Alt+End to turn it off. It keeps running on the lock screen so unlocking does not flash full brightness.",
+  "description": "Dim Your Screens Below the Lowest Brightness Your Hardware Allows\n\nTurned the brightness all the way down and the screen is still too bright at night? Deep Dim removes light in software, after the backlight has done all it can. A colour-matrix shader scales every pixel GNOME Shell draws, down to 1 % of the light by default, and works on any screen: laptop panels, external monitors and projectors.\n\nFeatures:\n\n* A slider in Quick Settings, right under the brightness slider, showing how much light is left\n* Logarithmic slider, so every step feels like the same change\n* Contrast, colour intensity and warmth controls in the slider menu\n* A switch per screen, to dim one display and leave another alone\n* Keyboard shortcuts with on-screen feedback: Super+Alt+Page Down / Page Up or Shift + brightness keys to step, Super+Alt+End to turn it off\n* Full-screen games and videos stay dimmed\n* Light dithering at strong dimming against colour banding\n* No cost when off: the filter is removed completely\n\nDeep Dim also runs on the lock screen, so locking or waking the screen at night does not flash it at full brightness, and Super+Alt+End can always undo a level that is too dark. The mouse pointer is not dimmed.\n\nNo network access, no data collected.\n\nBug reports and source code: https://github.com/joseteo/deepdim",
   "shell-version": [
     "46"
   ],
@@ -10,6 +10,9 @@
     "unlock-dialog"
   ],
   "settings-schema": "org.gnome.shell.extensions.deepdim",
-  "gettext-domain": "deepdim",
+  "url": "https://github.com/joseteo/deepdim",
+  "donations": {
+    "paypal": "joseteolorente"
+  },
   "version-name": "1.0.0"
 }

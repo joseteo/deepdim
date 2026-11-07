@@ -297,6 +297,14 @@ D-Bus; never install that helper in a real session. The suite measures the
 
 It needs an X11 host session, ImageMagick and `xwininfo`.
 
+Before uploading a release to extensions.gnome.org, build the zip and run the
+[Shexli](https://pypi.org/project/shexli/) static analyzer on it:
+
+```bash
+./build.sh
+shexli dist/deepdim@joseteo.github.com.shell-extension.zip
+```
+
 ## Contributing
 
 Issues and pull requests are welcome. The most valuable contribution is

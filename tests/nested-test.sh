@@ -176,6 +176,9 @@ assert_eq "disable removes keybinding" "$(js 'String(Main.wm._allowedKeybindings
 run 'Main.extensionManager.enableExtension(ext.uuid); "x"'; sleep 0.5
 assert_eq "re-enable restores effect" "$(js 'fx()?.constructor.name')" DeepDimEffect
 assert_eq "re-enable has no error" "$(js 'ext.error || "none"')" none
+# Settings changes after a disable/enable cycle must not reach widgets of the
+# first instance (they would log "already disposed" errors).
+run 'for (const k of ["contrast", "saturation", "warmth"]) { s.set_double(k, 0.5); s.reset(k); } s.set_strv("excluded-monitors", []); "x"'
 
 echo "10. lock screen keeps dimming"
 run 'Main.screenShield.lock(false); "x"'; sleep 2
