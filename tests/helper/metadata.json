@@ -1,0 +1,12 @@
+{
+  "uuid": "deepdim-testhelper@joseteo.github.com",
+  "name": "Deep Dim test helper",
+  "description": "Test only. Turns on unsafe mode so the nested test Shell can be driven over D-Bus Eval. Never install in a real session.",
+  "shell-version": [
+    "46"
+  ],
+  "session-modes": [
+    "user",
+    "unlock-dialog"
+  ]
+}

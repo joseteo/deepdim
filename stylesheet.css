@@ -1,0 +1,17 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
+.deepdim-slider-value {
+    min-width: 3.6em;
+    text-align: right;
+    font-feature-settings: "tnum";
+    padding: 0 4px;
+}
+
+/* No colour override: follows light and dark Shell themes. */
+.deepdim-menu-slider .deepdim-value {
+    font-feature-settings: "tnum";
+    font-size: 0.9em;
+}
+
+.deepdim-menu-slider .slider {
+    margin-top: 4px;
+}

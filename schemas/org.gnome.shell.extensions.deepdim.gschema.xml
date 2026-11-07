@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="deepdim">
+  <schema id="org.gnome.shell.extensions.deepdim" path="/org/gnome/shell/extensions/deepdim/">
+
+    <key name="enabled" type="b">
+      <default>false</default>
+      <summary>Dimming is on</summary>
+      <description>When false the filter is removed completely and costs nothing.</description>
+    </key>
+
+    <key name="level" type="d">
+      <range min="0.0" max="1.0"/>
+      <default>0.6</default>
+      <summary>Dim slider position</summary>
+      <description>0 is the darkest allowed level, 1 is no dimming. The mapping to luminance is logarithmic.</description>
+    </key>
+
+    <key name="floor" type="d">
+      <range min="0.0005" max="0.5"/>
+      <default>0.01</default>
+      <summary>Darkest level</summary>
+      <description>Luminance fraction shown when the slider is at its far left. 0.01 means 1 % of what the screen shows at the same backlight setting.</description>
+    </key>
+
+    <key name="contrast" type="d">
+      <range min="0.3" max="1.0"/>
+      <default>1.0</default>
+      <summary>Contrast</summary>
+    </key>
+
+    <key name="saturation" type="d">
+      <range min="0.0" max="1.0"/>
+      <default>1.0</default>
+      <summary>Colour intensity</summary>
+    </key>
+
+    <key name="warmth" type="d">
+      <range min="0.0" max="1.0"/>
+      <default>0.0</default>
+      <summary>Warmth</summary>
+      <description>Reduces blue and green light. 0 leaves colours alone.</description>
+    </key>
+
+    <key name="excluded-monitors" type="as">
+      <default>[]</default>
+      <summary>Screens left undimmed</summary>
+      <description>Connector names (for example HDMI-1) of screens the filter skips.</description>
+    </key>
+
+    <key name="dither" type="b">
+      <default>true</default>
+      <summary>Dither dark levels</summary>
+      <description>Adds one level of noise at strong dimming to hide colour banding.</description>
+    </key>
+
+    <key name="keep-fullscreen-dimmed" type="b">
+      <default>true</default>
+      <summary>Keep full-screen apps dimmed</summary>
+      <description>Stops full-screen windows from bypassing the compositor while dimming is on. Without it, games and videos in full screen show at full brightness.</description>
+    </key>
+
+    <key name="show-indicator" type="b">
+      <default>true</default>
+      <summary>Show a top bar icon while dimming</summary>
+    </key>
+
+    <key name="step" type="d">
+      <range min="0.01" max="0.25"/>
+      <default>0.05</default>
+      <summary>Shortcut step</summary>
+    </key>
+
+    <key name="dim-darker" type="as">
+      <default><![CDATA[['<Super><Alt>Page_Down', '<Shift>XF86MonBrightnessDown']]]></default>
+      <summary>Make the screen darker</summary>
+    </key>
+
+    <key name="dim-brighter" type="as">
+      <default><![CDATA[['<Super><Alt>Page_Up', '<Shift>XF86MonBrightnessUp']]]></default>
+      <summary>Make the screen brighter</summary>
+    </key>
+
+    <key name="dim-toggle" type="as">
+      <default><![CDATA[['<Super><Alt>End']]]></default>
+      <summary>Turn dimming on or off</summary>
+      <description>Also the way back if the screen was made too dark to read.</description>
+    </key>
+  </schema>
+</schemalist>

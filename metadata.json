@@ -1,0 +1,15 @@
+{
+  "uuid": "deepdim@joseteo.github.com",
+  "name": "Deep Dim",
+  "description": "Dim your screens below the lowest brightness the hardware allows. A colour-matrix shader scales every pixel the compositor draws, so you can go down to almost black at night. The slider sits in Quick Settings right under the brightness slider, with contrast, colour intensity and warmth controls and a switch per screen. Shortcuts: Super+Alt+Page Down / Page Up (or Shift + the brightness keys) to step, Super+Alt+End to turn it off. It keeps running on the lock screen so unlocking does not flash full brightness.",
+  "shell-version": [
+    "46"
+  ],
+  "session-modes": [
+    "user",
+    "unlock-dialog"
+  ],
+  "settings-schema": "org.gnome.shell.extensions.deepdim",
+  "gettext-domain": "deepdim",
+  "version-name": "1.0.0"
+}
