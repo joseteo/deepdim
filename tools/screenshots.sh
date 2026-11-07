@@ -67,7 +67,7 @@ convert "$T/l.png" "$T/r.png" +append \
     -fill '#000000a0' -draw 'roundrectangle 1048,650 1256,694 12,12' \
     -fill white -annotate +110+680 'Without Deep Dim' \
     -fill white -annotate +1068+680 'Deep Dim at 6 %' \
-    "$OUT/before-after.png"
+    +repage "$OUT/before-after.png"
 
 # Quick Settings with the slider
 js 's.set_double("level", 0.7); qs.menu.open(false); "x"' >/dev/null
@@ -105,7 +105,7 @@ convert "$T/multi.png" -fill '#ffffffcc' -draw 'rectangle 959,0 960,540' \
     -fill '#000000a0' -draw 'roundrectangle 1000,488 1144,524 10,10' \
     -fill white -annotate +766+512 'Dimmed screen' \
     -fill white -annotate +1014+512 'Left alone' \
-    "$OUT/per-screen.png"
+    +repage "$OUT/per-screen.png"
 
 "$ROOT/tests/nested-stop.sh"
 echo "Images written to $OUT"; ls -l "$OUT"
