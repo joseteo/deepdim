@@ -34,8 +34,8 @@ function scaleRow(settings, key, title, subtitle, min, max) {
         adjustment: new Gtk.Adjustment({lower: min, upper: max, step_increment: 0.01, page_increment: 0.1}),
         draw_value: true,
         digits: 2,
-        hexpand: true,
-        width_request: 220,
+        hexpand: false,
+        width_request: 240,
         valign: Gtk.Align.CENTER,
     });
     scale.set_format_value_func((s, v) => `${Math.round(v * 100)} %`);
