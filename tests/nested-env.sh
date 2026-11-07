@@ -14,6 +14,7 @@ cat > "$T/config/glib-2.0/settings/keyfile" <<KF
 [org/gnome/shell]
 enabled-extensions=['deepdim@joseteo.github.com', 'deepdim-testhelper@joseteo.github.com']
 welcome-dialog-last-shown-version='999'
+disabled-extensions=['ding@rastersoft.com']
 
 [org/gnome/shell/extensions/deepdim]
 ${DEEPDIM_SETTINGS:-}

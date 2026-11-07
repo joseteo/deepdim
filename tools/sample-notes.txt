@@ -1,0 +1,15 @@
+Night reading notes
+
+Brightness is already at its lowest setting,
+the room is dark, and the page still glows
+like a lamp pointed at the eyes.
+
+Deep Dim scales every pixel GNOME Shell draws,
+so the screen goes far below the panel minimum:
+
+  - slide left in Quick Settings for less light
+  - lower the contrast so white pages stop glaring
+  - add warmth to cut blue light before sleep
+  - leave a second screen untouched
+
+Super+Alt+End turns it off again at any time.
