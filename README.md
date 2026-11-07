@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/EGO-coming_soon-4A86CF?logo=gnome&logoColor=white" alt="extensions.gnome.org: coming soon" />
+  <a href="https://extensions.gnome.org/extension/11667/deep-dim/"><img src="https://img.shields.io/badge/EGO-Install-4A86CF?logo=gnome&logoColor=white" alt="Install from extensions.gnome.org" /></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-GPL--2.0--or--later-blue" alt="GPL-2.0-or-later" /></a>
   <img src="https://img.shields.io/badge/GNOME_Shell-46-green?logo=gnome&logoColor=white" alt="GNOME 46" />
   <img src="https://img.shields.io/badge/network-none-success" alt="No network access" />
@@ -83,9 +83,9 @@ works on any screen: laptop panels, HDMI and DisplayPort monitors, projectors.
 
 ## Installation
 
-### From extensions.gnome.org
+### From extensions.gnome.org (recommended)
 
-Coming soon. Once it is published, flip the toggle on its page.
+Visit the [Deep Dim page on EGO](https://extensions.gnome.org/extension/11667/deep-dim/) and flip the toggle.
 
 ### From source
 
