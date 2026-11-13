@@ -1,0 +1,34 @@
+/*
+ * Design tokens. This is the only file that may contain colour values.
+ * Stage 5 writes docs/design/tokens.json; apply-tokens.mjs regenerates the
+ * block between the markers from it. Edit tokens.json, not the block.
+ */
+
+/* tokens:start */
+:root {
+  --color-bg: #eceaf3;
+  --color-surface: #f8f7fc;
+  --color-text: #1b1830;
+  --color-text-muted: #4f4a68;
+  --color-accent: #3d348b;
+  --color-accent-text: #ffffff;
+  --font-heading: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --radius: 14px;
+  --space: 1rem;
+  --measure: 60ch;
+  --shadow: 0 1px 2px rgb(27 24 48 / 0.08), 0 10px 28px rgb(27 24 48 / 0.10);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #121022;
+    --color-surface: #1c1936;
+    --color-text: #f1ead9;
+    --color-text-muted: #b4acc7;
+    --color-accent: #f3d08f;
+    --color-accent-text: #1c1530;
+    --shadow: 0 1px 2px rgb(0 0 0 / 0.45), 0 10px 28px rgb(0 0 0 / 0.40);
+  }
+}
+/* tokens:end */

@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; base-uri 'none'; form-action 'none'">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>Deep Dim: dim your screens below the hardware minimum</title>
+    <meta name="description" content="Dim your screens below the lowest brightness your hardware allows. A GNOME Shell extension with one slider in Quick Settings, down to almost black.">
+    <link rel="canonical" href="https://joseteo.github.io/deepdim/">
+    <link rel="icon" href="assets/icon-192.png" type="image/png">
+    <link rel="stylesheet" href="css/tokens.css">
+    <link rel="stylesheet" href="css/site.css">
+    <script src="js/dimmer.js" defer></script>
+  </head>
+  <body>
+    <div class="backdrop dimmable" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="dimmable">
+        <header class="top">
+          <a class="brand" href="https://joseteo.github.io/deepdim/"><img src="assets/icon-192.png" alt="" width="34" height="34">Deep Dim</a>
+          <a href="https://github.com/joseteo/deepdim">Source code</a>
+        </header>
+        <div class="hero">
+          <h1 class="title" aria-label="Deep Dim"><span aria-hidden="true">D</span><span aria-hidden="true">e</span><span aria-hidden="true">e</span><span aria-hidden="true">p</span> <span aria-hidden="true">D</span><span aria-hidden="true">i</span><span aria-hidden="true">m</span></h1>
+          <p class="lead">Dim your screens below the lowest brightness your hardware allows.</p>
+        </div>
+      </div>
+
+      <form class="dimmer" aria-label="Try it on this page" hidden>
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M20.4 14.9A8.6 8.6 0 0 1 9.1 3.6a.6.6 0 0 0-.8-.7 9.8 9.8 0 1 0 12.8 12.8.6.6 0 0 0-.7-.8Z"/></svg>
+        <input id="light" type="range" min="0" max="100" value="100" step="1" aria-label="Light on this page">
+        <output id="amount" for="light">100 % of the light</output>
+        <button id="reset" type="button">Reset</button>
+      </form>
+
+      <div class="dimmable">
+        <main>
+          <p class="hint">Drag the moon slider: it takes light away from this page the way Deep Dim takes it from your screen. The slider stays lit so you can always come back, like the pointer on your desktop. Press Escape to reset.</p>
+          <p class="actions">
+            <a class="action" href="https://github.com/joseteo/deepdim#installation">Get it from the repository</a>
+            <a href="https://extensions.gnome.org/extension/11667/deep-dim/">extensions.gnome.org listing</a>
+          </p>
+          <p class="small">The listing on extensions.gnome.org is in review. Until it is public, install from the repository.</p>
+
+          <section>
+            <figure>
+              <img src="assets/before-after.jpg" width="1280" height="720" alt="The same desktop without Deep Dim and with Deep Dim at 6 percent of the light">
+              <figcaption>The same desktop without Deep Dim, and with Deep Dim at 6 % of the light.</figcaption>
+            </figure>
+          </section>
+
+          <section class="split">
+            <div>
+              <h2>The backlight stops. Deep Dim keeps going.</h2>
+              <p>You turn the brightness all the way down in a dark room and the screen is still too bright. The panel's lowest backlight step is a hardware limit: many laptop panels and most external monitors stop well above comfortable at 2 am.</p>
+              <p>Deep Dim removes light in software, after the backlight has done all it can. Every pixel GNOME Shell draws passes through a small colour-matrix shader, so the screen can go to 10 %, 1 % or less of what the hardware minimum shows. It works on any screen: laptop panels, HDMI and DisplayPort monitors, projectors.</p>
+            </div>
+            <figure>
+              <img src="assets/quick-settings.png" width="412" height="272" alt="The Deep Dim slider under the volume slider in Quick Settings, showing 25 percent">
+              <figcaption>One slider in Quick Settings, right under brightness.</figcaption>
+            </figure>
+          </section>
+
+          <section>
+            <h2>What it does</h2>
+            <ul class="features">
+              <li>
+                <h3>Below-minimum dimming</h3>
+                <p>From full brightness down to 1 % of the light by default, configurable down to 0.05 %.</p>
+              </li>
+              <li>
+                <h3>Lives where brightness lives</h3>
+                <p>A slider in Quick Settings, right under the built-in brightness slider, with the remaining light shown as a percentage.</p>
+              </li>
+              <li>
+                <h3>Perceptual slider</h3>
+                <p>Logarithmic like the eye, so every step feels like the same change, with fine control at the dark end.</p>
+              </li>
+              <li>
+                <h3>Contrast, colour intensity and warmth</h3>
+                <p>Lower the contrast so white pages stop glaring, desaturate, or cut blue and green light.</p>
+              </li>
+              <li>
+                <h3>Per-screen control</h3>
+                <p>Dim the laptop and leave the projector alone, with a switch for each screen.</p>
+              </li>
+              <li>
+                <h3>Keyboard shortcuts</h3>
+                <p>Step darker and brighter, or turn it off, from anywhere, including full-screen apps.</p>
+              </li>
+              <li>
+                <h3>Lock screen stays dimmed</h3>
+                <p>Unlocking at night does not flash full brightness.</p>
+              </li>
+              <li>
+                <h3>Full-screen apps stay dimmed</h3>
+                <p>Games and videos cannot bypass the filter.</p>
+              </li>
+              <li>
+                <h3>Smooth dark gradients</h3>
+                <p>One level of noise at strong dimming hides colour banding.</p>
+              </li>
+              <li>
+                <h3>Zero cost when off</h3>
+                <p>The filter is removed entirely, not just made transparent.</p>
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>One screen dimmed, the other left alone</h2>
+            <figure>
+              <img src="assets/per-screen.jpg" width="1280" height="360" alt="Two screens side by side: the left one dimmed, the right one untouched">
+            </figure>
+          </section>
+
+          <section class="split">
+            <div>
+              <h2>From the keyboard</h2>
+              <table>
+                <tbody>
+                  <tr>
+                    <th scope="row">Darker</th>
+                    <td><kbd>Super</kbd> + <kbd>Alt</kbd> + <kbd>Page Down</kbd> <span class="or">or</span> <kbd>Shift</kbd> + <kbd>Brightness Down</kbd></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Brighter</th>
+                    <td><kbd>Super</kbd> + <kbd>Alt</kbd> + <kbd>Page Up</kbd> <span class="or">or</span> <kbd>Shift</kbd> + <kbd>Brightness Up</kbd></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">On or off</th>
+                    <td><kbd>Super</kbd> + <kbd>Alt</kbd> + <kbd>End</kbd></td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="small">They work on the desktop, in the overview, in full-screen apps and on the lock screen.</p>
+            </div>
+            <div>
+              <h2>Get it</h2>
+              <p>For GNOME Shell 46.</p>
+              <pre>git clone https://github.com/joseteo/deepdim.git
+cd deepdim
+./install.sh</pre>
+              <p class="actions"><a class="action" href="https://github.com/joseteo/deepdim#installation">Get it from the repository</a></p>
+            </div>
+          </section>
+        </main>
+        <footer>
+          <p>Deep Dim is free software under the <a href="https://github.com/joseteo/deepdim/blob/main/LICENSE">GPL-2.0-or-later</a> licence. The extension needs no network access and collects no data.</p>
+          <p>This page is published by <a href="https://github.com/joseteo">joseteo</a>. It sets no cookies and loads nothing from third parties. It is hosted on GitHub Pages, which keeps its own access logs.</p>
+          <p>Deep Dim is an independent extension. It is not affiliated with or endorsed by the GNOME project.</p>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>

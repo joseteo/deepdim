@@ -1,0 +1,373 @@
+/* Layout and components of the Deep Dim page (structure A, "the page is the demo").
+   Colours, fonts and sizes come from tokens.css only. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light dark;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+.wrap {
+  width: min(100% - 2.5rem, 68rem);
+  margin-inline: auto;
+}
+
+/* The page's own background, as an element, so that it loses light with everything else. */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: var(--color-bg);
+}
+
+/* Everything except the slider itself loses light when the visitor drags it. */
+.dimmable {
+  filter: brightness(var(--light, 1));
+  transition: filter 80ms linear;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dimmable {
+    transition: none;
+  }
+}
+
+a {
+  color: var(--color-accent);
+  text-underline-offset: 0.18em;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+pre:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space);
+  padding: calc(var(--space) * 1.25) 0;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--color-text);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.brand img {
+  border-radius: 9px;
+}
+
+.hero {
+  padding: calc(var(--space) * 2.5) 0 calc(var(--space) * 1.5);
+}
+
+h1 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 6vw, 3.6rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+/* The name, with its letters stepping down in light like the six bars of the icon. */
+.title {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: clamp(3.4rem, 13vw, 9rem);
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  font-weight: 800;
+}
+
+.title span:nth-child(2) {
+  opacity: 0.9;
+}
+
+.title span:nth-child(3) {
+  opacity: 0.8;
+}
+
+.title span:nth-child(4) {
+  opacity: 0.7;
+}
+
+.title span:nth-child(5) {
+  opacity: 0.6;
+}
+
+.title span:nth-child(6) {
+  opacity: 0.5;
+}
+
+.title span:nth-child(7) {
+  opacity: 0.4;
+}
+
+h2 {
+  margin: 0 0 var(--space);
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 3.2vw, 2.3rem);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+
+h3 {
+  margin: 0 0 0.25rem;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  line-height: 1.3;
+}
+
+p {
+  max-width: var(--measure);
+  margin: 0 0 var(--space);
+}
+
+.lead {
+  max-width: 34ch;
+  margin: calc(var(--space) * 1.5) 0 0;
+  font-size: clamp(1.2rem, 2.2vw, 1.5rem);
+  line-height: 1.45;
+  color: var(--color-text-muted);
+}
+
+.small,
+.hint,
+figcaption {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+.hint {
+  margin-bottom: calc(var(--space) * 2);
+}
+
+.dimmer {
+  position: sticky;
+  top: 0.75rem;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: var(--space);
+  max-width: 44rem;
+  margin: calc(var(--space) * 2) 0 calc(var(--space) * 1.25);
+  padding: var(--space) calc(var(--space) * 1.25);
+  background: var(--color-surface);
+  border-radius: 999px;
+  box-shadow: var(--shadow);
+}
+
+.dimmer[hidden] {
+  display: none;
+}
+
+.dimmer svg {
+  flex: none;
+  color: var(--color-accent);
+}
+
+.dimmer input {
+  flex: 1;
+  min-width: 6rem;
+  height: 1.6rem;
+  accent-color: var(--color-accent);
+}
+
+.dimmer output {
+  flex: none;
+  min-width: 9.5rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.dimmer button {
+  flex: none;
+  padding: 0.4rem 0.6rem;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  color: var(--color-text);
+  font: 600 0.95rem var(--font-body);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  cursor: pointer;
+}
+
+@media (max-width: 40rem) {
+  .dimmer {
+    flex-wrap: wrap;
+    border-radius: var(--radius);
+  }
+
+  .dimmer output {
+    min-width: 0;
+  }
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space) calc(var(--space) * 1.5);
+  margin: 0 0 calc(var(--space) * 0.75);
+}
+
+.action {
+  display: inline-block;
+  padding: 0.85rem 1.5rem;
+  border-radius: 999px;
+  background: var(--color-accent);
+  color: var(--color-accent-text);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+section {
+  padding: calc(var(--space) * 3) 0;
+}
+
+figure {
+  margin: 0;
+}
+
+figure img {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+figcaption {
+  margin-top: 0.6rem;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 4fr);
+  gap: calc(var(--space) * 3);
+  align-items: start;
+}
+
+.split > * {
+  min-width: 0;
+}
+
+@media (max-width: 52rem) {
+  .split {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: calc(var(--space) * 1.5) calc(var(--space) * 2.5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.features p {
+  margin: 0;
+  color: var(--color-text-muted);
+}
+
+table {
+  width: 100%;
+  max-width: 38rem;
+  margin-bottom: var(--space);
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 0.7rem 0;
+  text-align: left;
+  vertical-align: top;
+}
+
+th[scope="row"] {
+  padding-right: calc(var(--space) * 1.5);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* On a narrow screen each shortcut is a name with its keys underneath. */
+@media (max-width: 40rem) {
+  th[scope="row"],
+  td {
+    display: block;
+    padding: 0;
+  }
+
+  tr {
+    display: block;
+    padding: 0.6rem 0;
+  }
+
+  kbd {
+    white-space: nowrap;
+  }
+}
+
+td {
+  line-height: 2.2;
+}
+
+kbd {
+  display: inline-block;
+  padding: 0.4rem 0.55rem;
+  border-radius: 7px;
+  background: var(--color-surface);
+  box-shadow: var(--shadow);
+  font: 600 0.85rem/1 var(--font-body);
+}
+
+.or {
+  margin: 0 0.5rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+pre {
+  max-width: 100%;
+  margin: 0 0 var(--space);
+  padding: var(--space) calc(var(--space) * 1.15);
+  overflow-x: auto;
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  font: 0.95rem/1.5 ui-monospace, "DejaVu Sans Mono", monospace;
+}
+
+footer {
+  padding: calc(var(--space) * 3) 0 calc(var(--space) * 3.5);
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
